@@ -2,6 +2,7 @@
 import { usePetContext } from "@/lib/hooks";
 import Image from "next/image";
 import React from "react";
+import PetButton from "./pet-button";
 
 export default function PetDetails() {
   const { selectedPet } = usePetContext();
@@ -45,6 +46,11 @@ function TopBar({ pet }: Props) {
       />
 
       <h2 className="text-2xl font-semibold leading-7 ml-5">{pet?.name}</h2>
+
+      <div className="ml-auto space-x-2">
+        <PetButton actionType="edit">Edit</PetButton>
+        <PetButton actionType="checkout">Checkout</PetButton>
+      </div>
     </div>
   );
 }
