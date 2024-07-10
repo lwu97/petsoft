@@ -1,6 +1,6 @@
 "use client";
 
-import usePetContext from "@/lib/hooks";
+import { usePetContext } from "@/lib/hooks";
 
 export default function Stats() {
   const { numberOfPets } = usePetContext();
