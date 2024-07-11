@@ -5,7 +5,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import PetFormBtn from "./pet-form-btn";
-import { addPet } from "@/actions/actions";
+import { addPet, editPet } from "@/actions/actions";
 import { toast } from "sonner";
 
 type PetFormProps = {
@@ -23,12 +23,21 @@ export default function PetForm({
     <form
       className="flex flex-col"
       action={async (formData) => {
-        const error = await addPet(formData);
-        if (error) {
-          toast.warning(error.message);
-          return;
+        if (actionType === "add") {
+          const error = await addPet(formData);
+          if (error) {
+            toast.warning(error.message);
+            return;
+          }
+          onFormSubmission();
+        } else if (actionType === "edit") {
+          const error = await editPet(selectedPet?.id, formData);
+          if (error) {
+            toast.warning(error.message);
+            return;
+          }
+          onFormSubmission();
         }
-        onFormSubmission();
       }}
     >
       <div className="space-y-3">
