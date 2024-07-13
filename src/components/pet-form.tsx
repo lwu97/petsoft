@@ -26,13 +26,13 @@ export default function PetForm({
         onFormSubmission();
 
         const petData = {
-          name: formData.get("name"),
-          ownerName: formData.get("ownerName"),
+          name: formData.get("name") as string,
+          ownerName: formData.get("ownerName") as string,
           imageUrl:
-            formData.get("imageUrl") ||
+            (formData.get("imageUrl") as string) ||
             "https://bytegrad.com/course-assets/react-nextjs/pet-placeholder.png",
           age: Number(formData.get("age")),
-          notes: formData.get("notes"),
+          notes: formData.get("notes") as string,
         };
         if (actionType === "add") {
           await handleAddPet(petData);
