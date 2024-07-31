@@ -12,6 +12,10 @@ export default async function Layout({
   children: React.ReactNode;
 }) {
   const pets = await prisma.pet.findMany();
+  const user = await prisma.user.findUnique({
+    where: { email: "leon@gmail.com" },
+    include: { pets: true },
+  });
   return (
     <>
       <BackgroundPattern />
