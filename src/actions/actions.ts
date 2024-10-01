@@ -10,20 +10,37 @@ import { checkAuth, getPetById } from "@/lib/server-utils";
 import { Prisma } from "@prisma/client";
 import { redirect } from "next/navigation";
 
-export async function logIn(formData: FormData) {
+export async function logIn(formData: unknown) {
+  if (!(formData instanceof FormData)) {
+    return {
+      message: "Invalid form data",
+    };
+  }
   await signIn("credentials", formData);
 
   redirect("app/dashboard");
 }
 
-export async function signUp(formData: FormData) {
-  const hashedPassword = await bcrypt.hash(
-    formData.get("password") as string,
-    10
-  );
+export async function signUp(formData: unknown) {
+  if (!(formData instanceof FormData)) {
+    return {
+      message: "Invalid form data",
+    };
+  }
+
+  const formDataEntries = Object.fromEntries(formData.entries());
+  const validateFormData = authSchema.safeParse(formDataEntries);
+  if (!validateFormData.success) {
+    return {
+      message: "Invalid form data.",
+    };
+  }
+
+  const { email, password } = validateFormData.data;
+  const hashedPassword = await bcrypt.hash(password, 10);
   await prisma.user.create({
     data: {
-      email: formData.get("email") as string,
+      email,
       hashedPassword,
     },
   });
