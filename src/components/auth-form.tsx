@@ -14,7 +14,7 @@ export default function AuthForm({ type }: AuthFormProps) {
   const [signUpError, dispatchSignUp] = useFormState(signUp, undefined);
   const [logInError, dispatchLogIn] = useFormState(logIn, undefined);
   return (
-    <form action={type === "logIn" ? logIn : signUp}>
+    <form action={type === "logIn" ? dispatchLogIn : dispatchSignUp}>
       <div className="space-y-1">
         <Label htmlFor="email">Email</Label>
         <Input id="email" name="email" type="email" required maxLength={100} />
