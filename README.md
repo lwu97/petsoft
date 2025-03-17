@@ -1,37 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Petsoft - A Modern Fullstack Pet Management System
 
-## Getting Started
+Built with the Next.js App Router, TypeScript & Tailwind
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# petsoft
+- **Full-Stack Pet Management Dashboard**: Manage and maintain pet day-care operations through a user-friendly, responsive dashboard built with React, Next.js, TypeScript, and Tailwind CSS.
+- **Real-Time Updates**: Leveraged Next.js Server Actions for efficient server-side logic, API handling, and real-time updates for an improved user experience.
+- **Efficient Database Management**: Integrated Prisma and PostgreSQL for seamless and scalable database management, ensuring smooth data storage and retrieval.
+- **Pet Profile Management**: Easily create, view, and update detailed pet profiles including personal details, health records, and schedule.
+- **Tailwind CSS Styling**: Responsive and customisable UI with Tailwind CSS for a clean and modern design across devices.
+- **Secure Authentication**: Implemented secure user authentication and role-based access control using NextAuth to ensure data privacy and system security.
+- **Fast & Scalable Performance**: Optimised server-side logic and API handling for fast data fetching and scalability.
